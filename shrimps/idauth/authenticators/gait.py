@@ -1,5 +1,5 @@
 """
-Deep learning gait authenticator is base on
+Deep learning gait authenticator is based on
 https://github.com/qinnzou/Gait-Recognition-Using-Smartphones
 
 We modify the original code to make it run in TF2.x

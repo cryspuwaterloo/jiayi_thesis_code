@@ -1,3 +1,11 @@
+"""
+Touch based authenticator is based on Touchalytics:
+http://www.mariofrank.net/touchalytics/
+
+We modify the original code to fit into our framework
+"""
+
+
 from idauth.authenticators.base import Authenticator
 
 import math
