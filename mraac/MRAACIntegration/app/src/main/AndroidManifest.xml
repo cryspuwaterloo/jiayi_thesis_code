@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ca.uwaterloo.cs.crysp.mraacintegration">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+
+    <permission android:name="ca.uwaterloo.crysp.libmraacintegration.permission.STAGE_ACQUIRE"
+        android:label="@string/stage_acquire_permission"
+        android:description="@string/stage_acquire_description"
+        android:protectionLevel="normal"
+        />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MRAACIntegration">
+        <service
+            android:name=".mraac.contexts.OnsiteContextService"
+            android:foregroundServiceType="location"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name=".mraac.BYODAuthenticationService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name=".mraac.BYODAccessService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name=".mraac.BYODAdaptationService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="ca.uwaterloo.crysp.libmraacintegration.permission.STAGE_ACQUIRE" />
+
+        <service android:name=".mraac.BYODContextService" />
+        <service android:name=".mraac.authenticators.ItusDaemonService"/>
+        <service android:name=".mraac.authenticators.GaitAuthService"/>
+        <service android:name=".mraac.contexts.DummyConditionService"/>
+        <service android:name=".mraac.contexts.DummyContextService"/>
+        <service android:name=".mraac.authenticators.DummyAuthService"/>
+        <service android:name=".mraac.contexts.OnFootService" />
+        <receiver android:name=".mraac.contexts.OnFootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="action.TRANSITIONS_DATA" />
+
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LibMRAACIntegration</string>
+    <string name="stage_acquire_permission"> MRAAC Stage Acquire </string>
+    <string name="stage_acquire_description"> Accquire the current stage information from MRAAC Service </string>
+</resources>
